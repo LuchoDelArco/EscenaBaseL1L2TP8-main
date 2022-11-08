@@ -8,10 +8,11 @@ public class NpcScriptableObject : ScriptableObject
     [Header("Dialogues")]
     public string[] Dialogues;
     public int[] DialogueInterpelations;
+    public bool hasInterpelations;
 
     [Header("Mission State")]
     public bool isOnMission;
-    public bool isFollowingPlayer;
+    public bool hasFinishedMission;
     public bool HasFinishedTalking;
 
 
