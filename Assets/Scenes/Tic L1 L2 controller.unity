@@ -8808,7 +8808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1507141611
 AudioListener:
   m_ObjectHideFlags: 0
@@ -9645,6 +9645,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSController
       objectReference: {fileID: 0}
+    - target: {fileID: 1687798268663104373, guid: 75de62f9478685d4b94ac9d5b3c8e86e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1895376494061076151, guid: 75de62f9478685d4b94ac9d5b3c8e86e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9698,6 +9703,11 @@ PrefabInstance:
     - target: {fileID: 1895376494061076151, guid: 75de62f9478685d4b94ac9d5b3c8e86e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907355039079643419, guid: 75de62f9478685d4b94ac9d5b3c8e86e,
+        type: 3}
+      propertyPath: orthographic
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
