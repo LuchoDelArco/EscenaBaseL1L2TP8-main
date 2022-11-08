@@ -1396,7 +1396,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100052, guid: 95579d3c72f091a47bbeb07a62a3ea17, type: 3}
       propertyPath: m_Name
-      value: PersonajeTp11
+      value: NPC
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 95579d3c72f091a47bbeb07a62a3ea17, type: 3}
       propertyPath: m_LocalPosition.x
