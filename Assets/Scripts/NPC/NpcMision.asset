@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc94d9d60e9d124680f68c7ee906db7, type: 3}
+  m_Name: NpcMision
+  m_EditorClassIdentifier: 
+  Dialogues:
+  - hola
+  - como andas
+  - "Tu misi\xF3n es:"
+  - gracias
+  - mb
+  DialogueInterpelations: 02000000
+  hasInterpelations: 1
+  isOnMission: 0
+  hasFinishedMission: 0
+  HasFinishedTalking: 1
