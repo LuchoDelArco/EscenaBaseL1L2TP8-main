@@ -146,4 +146,9 @@ public class NpcDialogueManager : MonoBehaviour
     {
         IsFollowingPlayer = true;
     }
+
+    private void ActivateMission()
+    {
+        IsOnMission = true;
+    }
 }
