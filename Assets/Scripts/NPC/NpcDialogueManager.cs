@@ -25,7 +25,7 @@ public class NpcDialogueManager : MonoBehaviour
     private Animator NpcAnimator;
     private NavMeshController NpcNav;
 
-    private int InterpelationCounter = -1;
+    public int InterpelationCounter = -1;
     private bool[] InterpelationBools;
 
     // Start is called before the first frame update
@@ -142,12 +142,12 @@ public class NpcDialogueManager : MonoBehaviour
         }
     }
 
-    private void FollowPlayer()
+    public void FollowPlayer()
     {
         IsFollowingPlayer = true;
     }
 
-    private void ActivateMission()
+    public void ActivateMission()
     {
         IsOnMission = true;
     }
