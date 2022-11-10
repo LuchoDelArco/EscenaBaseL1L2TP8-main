@@ -10,12 +10,16 @@ public class NpcBehaviour : MonoBehaviour
 
 
     private bool FirstInterpelation = true;
+    private bool FinishFirstMission = true;
+
+    private bool SecondInterpelation = true;
+    private bool FinishSecondMission = true;
 
     // Start is called before the first frame update
     void Start()
     {
         Manager = GetComponent<NpcDialogueManager>();
-        DronController = GameObject.FindGameObjectWithTag("DronController");
+        DronController = GameObject.Find("DronController");
     }
 
     // Update is called once per frame
@@ -27,10 +31,28 @@ public class NpcBehaviour : MonoBehaviour
             Manager.ActivateMission();
             Manager.FollowPlayer();
 
+            FindingControllerMission();
 
 
             FirstInterpelation = false;
         }
+
+        if (HasController && FinishFirstMission)
+        {
+            Manager.FinishMission();
+            Manager.StopFollowingPlayer();
+            Manager.DialogueCounter++;
+
+            FinishFirstMission = false;
+        }
+
+        if(Manager.InterpelationCounter == 1 && SecondInterpelation)
+        {
+             
+
+            SecondInterpelation = false;
+        }
+
     }
 
     private void FindingControllerMission()

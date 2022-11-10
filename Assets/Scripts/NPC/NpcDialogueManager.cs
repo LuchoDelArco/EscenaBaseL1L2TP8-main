@@ -12,7 +12,7 @@ public class NpcDialogueManager : MonoBehaviour
 
     [Header("Dialogues")]
     public NpcScriptableObject Data;
-    [SerializeField] int DialogueCounter;
+    public int DialogueCounter;
 
     [Header("PlayerDetect")]
     [SerializeField] bool PlayerInRange;
@@ -35,6 +35,8 @@ public class NpcDialogueManager : MonoBehaviour
         NpcNav = GetComponent<NavMeshController>();
         NpcCanvas.SetActive(false);
 
+        RestartScriptableObject();
+
         InterpelationBools = new bool[Data.DialogueInterpelations.Length];
     }
 
@@ -43,12 +45,8 @@ public class NpcDialogueManager : MonoBehaviour
     {
         if (PlayerInRange)
         {
-            if (IsOnMission)
-            {
-                NpcCanvas.SetActive(false);
-            }
 
-            if (Input.GetKeyDown(KeyCode.E) && Data.HasFinishedTalking && !IsOnMission)
+            if (Input.GetKeyDown(KeyCode.E) && !Data.HasFinishedTalking && !IsOnMission)
             {
                 DialogueCounter++;
 
@@ -58,11 +56,12 @@ public class NpcDialogueManager : MonoBehaviour
                 }
             }
         
-            if(Data.Dialogues.Length > DialogueCounter)
+            if(Data.Dialogues.Length > DialogueCounter && !IsFollowingPlayer)
             {
                 dialogueTxt.text = Data.Dialogues[DialogueCounter];
             }
-            else
+            
+            if(Data.Dialogues.Length <= DialogueCounter)
             {
                 Data.HasFinishedTalking = true;
             }
@@ -128,18 +127,6 @@ public class NpcDialogueManager : MonoBehaviour
     private void ActivateInterpelation()
     {
         InterpelationCounter++;
-
-        if(InterpelationCounter == 0)
-        {
-            Debug.Log("Interpelation");
-            FollowPlayer();
-            IsOnMission = true;
-        }
-
-        if(InterpelationCounter == 1)
-        {
-
-        }
     }
 
     public void FollowPlayer()
@@ -147,8 +134,27 @@ public class NpcDialogueManager : MonoBehaviour
         IsFollowingPlayer = true;
     }
 
+    public void StopFollowingPlayer()
+    {
+        IsFollowingPlayer = false;
+    }
+
     public void ActivateMission()
     {
         IsOnMission = true;
+        NpcCanvas.SetActive(false);
+    }
+
+    public void FinishMission()
+    {
+        IsOnMission = false;
+        NpcCanvas.SetActive(true);
+    }
+
+    private void RestartScriptableObject()
+    {
+        Data.isOnMission = false;
+        Data.HasFinishedTalking = false;
+        Data.hasFinishedMission = false;
     }
 }

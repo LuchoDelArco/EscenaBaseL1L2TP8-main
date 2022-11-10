@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class DronControllerBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private NpcBehaviour Npc;
+
+    void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.tag == "Player")
+        {
+            Npc = GameObject.Find("NPC").GetComponent<NpcBehaviour>();
+
+            StartCoroutine(DesactivateGO());
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator DesactivateGO()
     {
-        
+
+        yield return new WaitForSeconds(1f);
+
+        Npc.HasController = true;
+        gameObject.SetActive(false);
     }
+
 }

@@ -16,9 +16,13 @@ MonoBehaviour:
   - hola
   - como andas
   - "Tu misi\xF3n es:"
-  - gracias
-  - mb
-  DialogueInterpelations: 02000000
+  - 
+  - Encontramos el control!
+  - "Con esto vamos a poner usar el dron de la otra habitaci\xF3n"
+  - Tenes que activar 2 botones con los bloques de sus respectivos colores
+  - "Usa la tecla \"F\" para entrar a la c\xE1mara del dron"
+  - 
+  DialogueInterpelations: 0300000008000000
   hasInterpelations: 1
   isOnMission: 0
   hasFinishedMission: 0
