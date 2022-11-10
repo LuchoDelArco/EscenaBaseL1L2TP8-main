@@ -1827,6 +1827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NpcCanvas: {fileID: 1089580441}
+  Player: {fileID: 0}
   dialogueTxt: {fileID: 949580564}
   Data: {fileID: 11400000, guid: 79b92d886eb34c549bbd485e89725643, type: 2}
   DialogueCounter: 0
@@ -1910,7 +1911,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5bb85241f9c7445a2a9681e0adb459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DronController: {fileID: 1419038194}
+  DronView: {fileID: 0}
   HasController: 0
+  HasActivatedRocket: 0
 --- !u!1 &883964609
 GameObject:
   m_ObjectHideFlags: 0
@@ -10174,11 +10178,11 @@ GameObject:
   - component: {fileID: 1419038195}
   m_Layer: 0
   m_Name: DronController
-  m_TagString: Untagged
+  m_TagString: DronController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1419038195
 MonoBehaviour:
   m_ObjectHideFlags: 0

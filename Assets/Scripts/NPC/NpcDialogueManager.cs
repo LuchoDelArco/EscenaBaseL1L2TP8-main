@@ -8,6 +8,7 @@ public class NpcDialogueManager : MonoBehaviour
 {
     [Header("UI-Aspects")]
     public GameObject NpcCanvas;
+    public GameObject Player;
     public TextMeshProUGUI dialogueTxt;
 
     [Header("Dialogues")]
@@ -33,6 +34,7 @@ public class NpcDialogueManager : MonoBehaviour
     {
         NpcAnimator = GetComponent<Animator>();
         NpcNav = GetComponent<NavMeshController>();
+        Player = GameObject.FindGameObjectWithTag("Player");
         NpcCanvas.SetActive(false);
 
         RestartScriptableObject();
@@ -100,7 +102,11 @@ public class NpcDialogueManager : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             PlayerInRange = true;
-            NpcCanvas.SetActive(true);
+
+            if (!IsOnMission)
+            {
+                NpcCanvas.SetActive(true);
+            }
         }
     }
 
@@ -109,7 +115,11 @@ public class NpcDialogueManager : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             PlayerInRange = false;
-            NpcCanvas.SetActive(false);
+
+            if (!IsOnMission)
+            {
+                NpcCanvas.SetActive(false);
+            }
         }
     }
 
@@ -137,6 +147,7 @@ public class NpcDialogueManager : MonoBehaviour
     public void StopFollowingPlayer()
     {
         IsFollowingPlayer = false;
+        NpcAnimator.SetBool("IsWalking", false);
     }
 
     public void ActivateMission()

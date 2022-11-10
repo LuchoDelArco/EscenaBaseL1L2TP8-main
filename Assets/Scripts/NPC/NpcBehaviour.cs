@@ -5,13 +5,15 @@ using UnityEngine;
 public class NpcBehaviour : MonoBehaviour
 {
     private NpcDialogueManager Manager;
-    private GameObject DronController;
-    public bool HasController;
+    public GameObject DronController;
+    public DronViewScript DronView;
 
 
+    public bool HasController = false;
     private bool FirstInterpelation = true;
     private bool FinishFirstMission = true;
 
+    public bool HasActivatedRocket = false;
     private bool SecondInterpelation = true;
     private bool FinishSecondMission = true;
 
@@ -19,7 +21,6 @@ public class NpcBehaviour : MonoBehaviour
     void Start()
     {
         Manager = GetComponent<NpcDialogueManager>();
-        DronController = GameObject.Find("DronController");
     }
 
     // Update is called once per frame
@@ -48,9 +49,17 @@ public class NpcBehaviour : MonoBehaviour
 
         if(Manager.InterpelationCounter == 1 && SecondInterpelation)
         {
-             
+            ActivateDronMission();
+            Manager.ActivateMission();
 
             SecondInterpelation = false;
+        }
+
+        if (HasActivatedRocket && FinishSecondMission)
+        {
+            
+
+            FinishSecondMission = false;
         }
 
     }
@@ -61,6 +70,11 @@ public class NpcBehaviour : MonoBehaviour
         HasController = false;
         DronController.SetActive(true);
 
+    }
+
+    private void ActivateDronMission()
+    {
+        DronView.CanSwichViewActivation();
     }
 
 }
