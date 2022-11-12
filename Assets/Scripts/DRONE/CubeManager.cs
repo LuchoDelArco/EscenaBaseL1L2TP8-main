@@ -6,10 +6,16 @@ public class CubeManager : MonoBehaviour
 {
     public GameObject[] Platform = new GameObject[2];
 
+	public GameObject smoke;
+	public Rigidbody Rb;
+	public int speed;
+
+	[SerializeField] GameObject[] arrayLadrillos;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+		arrayLadrillos = GameObject.FindGameObjectsWithTag("brick");
     }
 
     // Update is called once per frame
@@ -19,6 +25,18 @@ public class CubeManager : MonoBehaviour
         {
             //LUCHO, PONE ACA LO QUE QUERES QUE PASE UNA VEZ QUE EL DRONE YA HIZO LO DE LOS CUBITOS
             Debug.Log("Ambos presionados");
-        }
-    }
+
+			smoke.SetActive(true);
+			Rb.velocity = transform.right * -speed;
+			AgregarRb();
+		}
+	}
+
+	void AgregarRb()
+	{
+		foreach (GameObject go in arrayLadrillos)
+		{
+			go.AddComponent<Rigidbody>();
+		}
+	}
 }
