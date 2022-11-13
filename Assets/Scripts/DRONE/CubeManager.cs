@@ -32,7 +32,8 @@ public class CubeManager : MonoBehaviour
             Debug.Log("Ambos presionados");
 
 			smoke.SetActive(true);
-			Rb.velocity = transform.right * -speed;
+            Rb.constraints = RigidbodyConstraints.None;
+            Rb.velocity = transform.right * -speed;
 			AgregarRb();
 
 		}
