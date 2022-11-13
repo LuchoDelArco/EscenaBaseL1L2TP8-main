@@ -10,6 +10,11 @@ public class CubeManager : MonoBehaviour
 	public Rigidbody Rb;
 	public int speed;
 
+	public float brickMass;
+
+	Rigidbody brickRb; 
+
+
 	[SerializeField] GameObject[] arrayLadrillos;
 
     // Start is called before the first frame update
@@ -29,6 +34,7 @@ public class CubeManager : MonoBehaviour
 			smoke.SetActive(true);
 			Rb.velocity = transform.right * -speed;
 			AgregarRb();
+
 		}
 	}
 
@@ -36,7 +42,8 @@ public class CubeManager : MonoBehaviour
 	{
 		foreach (GameObject go in arrayLadrillos)
 		{
-			go.AddComponent<Rigidbody>();
+			brickRb = go.AddComponent<Rigidbody>();
+			brickRb.mass = brickMass;
 		}
 	}
 }
