@@ -11,9 +11,11 @@ public class CubeManager : MonoBehaviour
 	public int speed;
 
 	public float brickMass;
+    private bool DoOnce = false;
 
-	Rigidbody brickRb; 
+	Rigidbody brickRb;
 
+    public DronViewScript DronView;
 
 	[SerializeField] GameObject[] arrayLadrillos;
 
@@ -26,15 +28,19 @@ public class CubeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Platform[0].GetComponent<PlatformScript>().cubeOn && Platform[1].GetComponent<PlatformScript>().cubeOn)
+        if (Platform[0].GetComponent<PlatformScript>().cubeOn && Platform[1].GetComponent<PlatformScript>().cubeOn && !DoOnce)
         {
             //LUCHO, PONE ACA LO QUE QUERES QUE PASE UNA VEZ QUE EL DRONE YA HIZO LO DE LOS CUBITOS
             Debug.Log("Ambos presionados");
 
+            DronView.ActivatePlayer();
 			smoke.SetActive(true);
             Rb.constraints = RigidbodyConstraints.None;
             Rb.velocity = transform.right * -speed;
 			AgregarRb();
+
+            DoOnce = true;
+
 
 		}
 	}
@@ -44,7 +50,7 @@ public class CubeManager : MonoBehaviour
 		foreach (GameObject go in arrayLadrillos)
 		{
 			brickRb = go.AddComponent<Rigidbody>();
-			brickRb.mass = brickMass;
+		//	brickRb.mass = brickMass;
 		}
 	}
 }

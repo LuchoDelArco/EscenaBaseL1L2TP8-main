@@ -6,8 +6,7 @@ public class NpcBehaviour : MonoBehaviour
 {
     private NpcDialogueManager Manager;
     public GameObject DronController;
-    public DronViewScript DronView;
-
+    private DronViewScript DronView;
 
     public bool HasController = false;
     private bool FirstInterpelation = true;
@@ -21,6 +20,7 @@ public class NpcBehaviour : MonoBehaviour
     void Start()
     {
         Manager = GetComponent<NpcDialogueManager>();
+        DronView = GetComponent<DronViewScript>();
     }
 
     // Update is called once per frame
@@ -57,7 +57,9 @@ public class NpcBehaviour : MonoBehaviour
 
         if (HasActivatedRocket && FinishSecondMission)
         {
-            
+            Manager.FinishMission();
+            Manager.DialogueCounter++;
+
 
             FinishSecondMission = false;
         }

@@ -13,16 +13,24 @@ MonoBehaviour:
   m_Name: NpcMision
   m_EditorClassIdentifier: 
   Dialogues:
-  - hola
-  - como andas
-  - "Tu misi\xF3n es:"
+  - Hola Alumno
+  - Necesito tu ayuda!!!
+  - Tengo que romper esa pared roja de alli con este misil
+  - Para activar el misil tenemos que pulsar 2 botones que estan en la otra sala
+  - Hay un dron en la otra sala que nos puede ayudar!!
+  - Busquemos el control del dron primero!!
   - 
-  - Encontramos el control!
-  - "Con esto vamos a poner usar el dron de la otra habitaci\xF3n"
-  - Tenes que activar 2 botones con los bloques de sus respectivos colores
-  - "Usa la tecla \"F\" para entrar a la c\xE1mara del dron"
+  - Bien hecho ya tenemos el control!!!
+  - Como te dije, hay que activar los 2 botones con un dron
+  - Para activarlos hay que tirarles los bloques de sus respectivos colores arriba
+  - "Lo haria yo, pero tengo la mano da\xF1ana"
+  - Con la tecla "F" vas a poder entrar a la vision del dron
+  - Suerte
   - 
-  DialogueInterpelations: 0300000008000000
+  - Perfecto!!!!
+  - Gracias por la ayuda alumno!!!
+  - Tenes un 10!!!
+  DialogueInterpelations: 060000000d000000
   hasInterpelations: 1
   isOnMission: 0
   hasFinishedMission: 0
