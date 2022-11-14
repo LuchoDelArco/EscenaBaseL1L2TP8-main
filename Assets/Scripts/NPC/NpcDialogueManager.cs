@@ -68,6 +68,13 @@ public class NpcDialogueManager : MonoBehaviour
                 Data.HasFinishedTalking = true;
             }
 
+            if (Data.HasFinishedTalking)
+            {
+                FollowPlayer();
+                IsOnMission = true;
+                NpcCanvas.SetActive(false);
+            }
+
         }
 
         if (IsFollowingPlayer)
